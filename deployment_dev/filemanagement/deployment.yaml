@@ -1,0 +1,59 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: file-management
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: file-management
+  template:
+    metadata:
+      labels:
+        app: file-management
+    spec:
+      containers:
+        - name: file-management
+          image: matthew9164/filemanagement:1.3.2
+          ports:
+            - containerPort: 8097
+          resources:
+            requests:
+              memory: "256Mi"
+              cpu: "250m"
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
+          env:
+            - name: SPRING_MINIO_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: minio-configmap
+                  key: minio.url
+            - name: SPRING_BUCKET
+              value: files
+            - name: SPRING_MINIO_ACCESS-KEY
+              valueFrom:
+                secretKeyRef:
+                  name: minio-secret
+                  key: access.key
+            - name: SPRING_MINIO_SECRET-KEY
+              valueFrom:
+                secretKeyRef:
+                  name: minio-secret
+                  key: secret.key
+            - name: SPRING_RABBITMQ_ADDRESSES
+              valueFrom:
+                configMapKeyRef:
+                  name: rabbitmq-configmap
+                  key: SPRING_RABBITMQ_ADDRESSES
+            - name: SPRING_RABBITMQ_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: rabbitmq-secret
+                  key: spring.rabbitmq.username
+            - name: SPRING_RABBITMQ_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: rabbitmq-secret
+                  key: spring.rabbitmq.password

@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  # Name the volume chain
+  name: db-persistent-volume-claim
+spec:
+  storageClassName: manual
+  accessModes:
+    # Allow ReadWrite to multiple pods
+    - ReadWriteMany
+  # PVC requesting resources
+  resources:
+    requests:
+      # the PVC storage
+      storage: 8Gi
