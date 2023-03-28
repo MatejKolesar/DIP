@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: billing-loadbalancer
+spec:
+  selector:
+    app: billing
+  ports:
+    - name: billing
+      port: 8095
+      targetPort: 8095
+  type: LoadBalancer

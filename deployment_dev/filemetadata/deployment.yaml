@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: file-metadata
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: file-metadata
+  template:
+    metadata:
+      labels:
+        app: file-metadata
+    spec:
+      containers:
+        - name: file-metadata
+          image: matthew9164/filemetadata:1.2.0
+          ports:
+            - containerPort: 8092
+          resources:
+            requests:
+              memory: "256Mi"
+              cpu: "250m"
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
+          env:
+            - name: userManagementUri
+              valueFrom:
+                configMapKeyRef:
+                  name: usermanagement-configmap
+                  key: USERMANAGEMENT_URL
+            - name: SPRING_RABBITMQ_ADDRESSES
+              valueFrom:
+                configMapKeyRef:
+                  name: rabbitmq-configmap
+                  key: SPRING_RABBITMQ_ADDRESSES
+            - name: SPRING_RABBITMQ_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: rabbitmq-secret
+                  key: spring.rabbitmq.username
+            - name: SPRING_RABBITMQ_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: rabbitmq-secret
+                  key: spring.rabbitmq.password

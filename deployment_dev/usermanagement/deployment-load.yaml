@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: user-management-loadbalancer
+spec:
+  selector:
+    app: user-management
+  ports:
+    - name: user-management
+      port: 8093
+      targetPort: 8093
+  type: LoadBalancer
