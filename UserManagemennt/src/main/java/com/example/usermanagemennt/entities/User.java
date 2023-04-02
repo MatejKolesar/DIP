@@ -1,10 +1,13 @@
 package com.example.usermanagemennt.entities;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
 import java.util.UUID;
 
+
+@Entity
 public class User {
     @Id
     private UUID userId;
@@ -13,6 +16,16 @@ public class User {
     @Column(name="name")
     private String name;
 
+    @Column(name="email")
+    private String email;
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
     public UUID getUserId() {
         return userId;
