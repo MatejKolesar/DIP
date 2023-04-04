@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: file-management
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: file-management
+  template:
+    metadata:
+      labels:
+        app: file-management
+    spec:
+      containers:
+        - name: file-management
+          image: filemanagement:latest
+          ports:
+            - containerPort: 2090
