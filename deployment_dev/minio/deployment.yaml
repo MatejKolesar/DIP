@@ -2,7 +2,7 @@ apiVersion: apps/v1 #  for k8s versions before 1.9.0 use apps/v1beta2  and befor
 kind: Deployment
 metadata:
   # This name uniquely identifies the Deployment
-  name: minio-deployment
+  name: minio-deployment.yaml
 spec:
   selector:
     matchLabels:

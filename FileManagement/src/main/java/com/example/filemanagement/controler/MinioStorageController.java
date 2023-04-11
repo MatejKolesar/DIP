@@ -39,28 +39,23 @@ public class MinioStorageController {
         public void addAttachment(@RequestParam("file") MultipartFile file) {
             try {
                 boolean found =
-                        minioClient.bucketExists(BucketExistsArgs.builder().bucket("asiatrip").build());
+                        minioClient.bucketExists(BucketExistsArgs.builder().bucket(bucket).build());
                 if (!found) {
                     // Make a new bucket called 'asiatrip'.
-                    minioClient.makeBucket(MakeBucketArgs.builder().bucket("asiatrip").build());
+                    minioClient.makeBucket(MakeBucketArgs.builder().bucket(bucket).build());
                 } else {
                     System.out.println("Bucket 'asiatrip' already exists.");
                 }
 
-                    minioClient.putObject(
-                            PutObjectArgs.builder().bucket(bucket)
-                                    .object("")
-                                    .stream(file.getInputStream(), -1,-1)
-                                    .build()
-                    );
-
-
+                minioClient.putObject(
+                        PutObjectArgs.builder().bucket(bucket)
+                                .object(file.getName())
+                                .stream(file.getInputStream(), -1,5 * (1024)*1024)
+                                .build()
+                );
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }
-            System.out.println(
-                    "'/home/user/Photos/asiaphotos.zip' is successfully uploaded as "
-                            + "object 'asiaphotos-2015.zip' to bucket 'asiatrip'.");
         }
 
 }
