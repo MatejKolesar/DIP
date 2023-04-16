@@ -44,7 +44,7 @@ public class MinioStorageController {
                     // Make a new bucket called 'asiatrip'.
                     minioClient.makeBucket(MakeBucketArgs.builder().bucket(bucket).build());
                 } else {
-                    System.out.println("Bucket 'asiatrip' already exists.");
+                    System.out.println("Bucket 'files' already exists.");
                 }
 
                 minioClient.putObject(
