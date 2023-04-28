@@ -4,9 +4,9 @@ metadata:
   name: user-management-loadbalancer
 spec:
   selector:
-    app: user-management-loadbalancer
+    app: user-management
   ports:
-    - name: http
-      port: 80
-      targetPort: 2080
+    - name: user-management
+      port: 8090
+      targetPort: 8080
   type: LoadBalancer

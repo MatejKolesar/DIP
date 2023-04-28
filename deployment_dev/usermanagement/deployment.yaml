@@ -14,14 +14,14 @@ spec:
     spec:
       containers:
         - name: user-management
-          image: matthew9164/usermanagement:1.0.0
+          image: matthew9164/usermanagement:1.0.2
           ports:
-            - containerPort: 2080
+            - containerPort: 8080
           env:
             - name: SPRING_PROFILES_ACTIVE
               value: production
             - name: SPRING_DATASOURCE_URL
-              value: jdbc:mysql://mysql-service:3306/spring_boot_db
+              value: jdbc:postgresql://10.105.73.98:5432/postgres
             - name: SPRING_DATASOURCE_USERNAME
               valueFrom:
                 secretKeyRef:

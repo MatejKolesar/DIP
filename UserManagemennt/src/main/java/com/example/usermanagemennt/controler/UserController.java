@@ -18,6 +18,10 @@ public class UserController {
 
     @GetMapping("users/{email}")
     public User getUser(@PathVariable String email) {
-        return userRepository.getUserByEmail(email);
+        System.out.println("GOT EMAIL REQUEST");
+        User user = new User();
+        user.setName("Nameeeeee");
+//        return userRepository.getUserByEmail(email);
+        return user;
     }
 }

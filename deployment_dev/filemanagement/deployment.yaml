@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
         - name: file-management
-          image: filemanagement:latest
+          image: matthew9164/filemanagement:latest
           ports:
             - containerPort: 2090
