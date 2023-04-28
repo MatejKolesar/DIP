@@ -4,9 +4,9 @@ metadata:
   name: file-management-loadbalancer
 spec:
   selector:
-    app: file-management-loadbalancer
+    app: file-management
   ports:
-    - name: http
-      port: 8081
-      targetPort: 2090
+    - name: file-management
+      port: 8091
+      targetPort: 8090
   type: LoadBalancer

@@ -17,8 +17,9 @@ public class MinioConfig {
     @Bean
     @Qualifier("MinioClient")
     public MinioClient createMinioClient() {
+        System.out.println("How about this url: " + minioUrl);
         return MinioClient.builder()
-            .endpoint(minioUrl)
+            .endpoint("minioUrl")
             .credentials("Q3AM3UQ867SPQQA43P2F", "zuf+tfteSlswRu7BJ86wekitnifILbZam1KYY3TG")
             .build();
     }
