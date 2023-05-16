@@ -1,3 +1,0 @@
-Run minio after install
-
- kubectl run --namespace minio minio-client      --rm --tty -i --restart='Never'      --env MINIO_SERVER_ROOT_USER=$ROOT_USER      --env MINIO_SERVER_ROOT_PASSWORD=$ROOT_PASSWORD      --env MINIO_SERVER_HOST=minio      --image docker.io/bitnami/minio-client:2023.4.12-debian-11-r3 -- admin info minio

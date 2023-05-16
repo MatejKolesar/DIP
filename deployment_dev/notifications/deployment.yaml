@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: notifications
-          image: matthew9164/notifications:1.2.3
+          image: matthew9164/notifications:1.2.4
           ports:
             - containerPort: 8094
           resources:

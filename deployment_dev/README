@@ -7,3 +7,26 @@ and also some existing solutions (RabbitMQ, S3, MinIO, PostgreSQL).
 The microservices are located in folders with the name of the microservices. Some of the shared configurations that are needed in multiple microservices are present in the shared folder.
 The scripts folder contains a few scripts for cUrl and also postman collection of requests. Some of these scripts were used during testing and experiments.
 
+##
+To deploy the application you should ideally start from the independent services with following commands
+
+`
+kubectl apply -f shared
+kubectl apply -f rabbitmq
+kubectl apply -f minio
+
+kubectl apply -f filemetadata
+kubectl apply -f usermanagement
+kubectl apply -f billing
+kubectl apply -f notifications
+kubectl apply -f filemanagement
+`
+
+
+
+Optional for monitoring
+
+`
+kubectl apply -f metrics
+kubectl apply -f kubeernetes-ui
+`

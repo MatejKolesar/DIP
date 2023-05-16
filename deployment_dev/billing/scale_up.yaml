@@ -10,7 +10,9 @@ spec:
         spec:
           containers:
             - name: service-scheduled-job
-              image: service-scheduled-job:latest
-              args:
-                - "kubectl patch hpa billing-hpa --patch '{\"spec\":{\"minReplicas\":1}}'"
+              image: bitnami/kubectl:latest
+              command:
+                - /bin/sh
+                - -c
+                - kubectl patch hpa billing-hpa --patch '{\"spec\":{\"minReplicas\":1}}'
           restartPolicy: OnFailure
