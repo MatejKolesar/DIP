@@ -1,6 +1,6 @@
-package config;
+package com.example.notifications.config;
 
-import lsitener.NotificationReceiver;
+import com.example.notifications.listener.NotificationReceiver;
 import org.springframework.amqp.core.Binding;
 import org.springframework.amqp.core.BindingBuilder;
 import org.springframework.amqp.core.Queue;
