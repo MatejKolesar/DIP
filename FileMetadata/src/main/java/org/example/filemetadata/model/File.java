@@ -17,22 +17,16 @@ import java.util.Set;
 
 public class File {
 
-
     private String fileTID;
 
     private String size;
     private String originalName;
-
     private String addInfo;
 
     private String name;
-
     private Date creationDate;
 
-
-
     private User owner;
-
 
     private Set<User> users = new HashSet<>();
 

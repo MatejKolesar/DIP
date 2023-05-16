@@ -23,6 +23,7 @@ public class File {
     @Column(name = "FILE_TID")
     private String fileTID;
 
+    @Column(name = "FILE_SIZE")
     private String size;
     @Column(name = "ORIGINAL_NAME")
     private String originalName;

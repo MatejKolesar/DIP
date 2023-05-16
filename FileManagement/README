@@ -45,5 +45,3 @@ The name of the created image is filemanagement:latest. It is recommended to ren
 `docker tag filemanagement:latest filemanagement:<new_version>`
 
 After creating the image it can be used in the deployment file in deployment_dev project.
-## Swagger UI
-A swagger API documentation is available at the endpoint `/swagger-ui/index.html`

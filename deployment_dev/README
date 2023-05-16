@@ -30,3 +30,13 @@ Optional for monitoring
 kubectl apply -f metrics
 kubectl apply -f kubeernetes-ui
 `
+
+
+After this the creadentials to rabbitmq-cluster need to be configured. You can find them with the following commands:
+`
+kubectl exec -it service/rabbit-mq-cluster bash
+cd /etc/rabbitmq/conf.d
+cat 11-default_user.conf
+`
+
+Dont forget to encode them into BASE64 to use for as secrets

@@ -32,7 +32,7 @@ public class User {
     private Integer age;
 
     @Column(name = "IS_ACTIVE")
-    private boolean isActive;
+    private Boolean isActive;
 
     @Column(name = "permissions_tst")
     private String permissions;
@@ -78,7 +78,7 @@ public class User {
         this.age = age;
     }
 
-    public boolean isActive() {
+    public Boolean isActive() {
         return isActive;
     }
 

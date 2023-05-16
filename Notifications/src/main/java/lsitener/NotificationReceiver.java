@@ -15,11 +15,7 @@ public class NotificationReceiver {
 
     public void receiveMessage(Map<String, String> message) {
         log.info("Received <" + message + ">");
-        System.out.println("Got here");
-
-
-
-
+        // Here would be a send to user to notify about progress
     }
 
 }

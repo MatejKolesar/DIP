@@ -17,17 +17,13 @@ public class User {
 
     private UUID userId;
 
-
-
     private String name;
-
 
     private String email;
 
-
     private Integer age;
 
-    private boolean isActive;
+    private Boolean isActive;
 
     private String permissions;
 
@@ -35,9 +31,7 @@ public class User {
 
     private Date dateOfBirth;
 
-
     private Set<File> files = new HashSet<>();
-
 
     private UserAccount account;
 

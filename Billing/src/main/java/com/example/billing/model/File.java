@@ -29,13 +29,9 @@ public class File {
 
     private Date creationDate;
 
-
-
     private User owner;
 
-
     private Set<User> users = new HashSet<>();
-
 
     public String getFileTID() {
         return fileTID;
