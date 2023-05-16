@@ -1,4 +1,4 @@
-apiVersion: batch/v1beta1
+apiVersion: batch/v1
 kind: CronJob
 metadata:
   name: billing-scale-up-job
@@ -12,4 +12,5 @@ spec:
             - name: service-scheduled-job
               image: service-scheduled-job:latest
               args:
-                - "kubectl patch hpa billing-hpa --patch '{\"spec\":{\"minReplicas\":5}}'"
+                - "kubectl patch hpa billing-hpa --patch '{\"spec\":{\"minReplicas\":1}}'"
+          restartPolicy: OnFailure

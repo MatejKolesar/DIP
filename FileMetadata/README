@@ -1,0 +1,46 @@
+# File metadata MS
+This microservice is used to save the references to files.
+
+## Prerequisites
+Before you begin, ensure that you have the following software installed on your system:
+
+- Java Development Kit (JDK) - Version 11 or higher
+- Apache Maven - Version 3.6 or higher
+- Optional - docker, Kubernetes
+
+
+## Setup
+
+1. Clone the main repository to your machine
+`git clone https://github.com/MatejKolesar/DIP.git`
+
+navigate to file metadata microservice
+`cd FileMetadata`
+
+
+Open the project in your IDE.
+
+2. Configure the project settings as per your requirements. Update the necessary properties in the application.properties file located in the src/main/resources directory.
+
+3. Build the project using Maven. Open a terminal or command prompt and navigate to the project's root directory.
+
+4. Run the Maven install command to compile the source code, run tests, and package the application:
+
+`mvn clean install`
+
+Maven will automatically download the required dependencies specified in the pom.xml file.
+
+5. Once the build process completes successfully, you should see a target directory created in the project's root directory. The compiled and packaged application JAR file will be located in the target directory.
+
+## Running the Microservice
+To run the microservice you can use IDEA and chosen the run option for maven or you can use the CLI with the following command:
+
+`mvn spring-boot:run`
+
+
+## Creating the docker image dor Kubernetes deployment
+To create custom image in the kubernetes deployment you can use the jib:dockerBuild job which creates a docker image for the current version of the application.
+
+The name of the created image is filemetadata:latest. It is recommended to rename this image with the following command
+`docker tag filemetadata:latest filemetadata:<new_version>`
+

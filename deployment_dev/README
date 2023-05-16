@@ -1,0 +1,9 @@
+# Deployment dev
+In this folder are the needed scripts for k8s deployment which includes the custom microservices (UserManagement, FileManagement, FileMetadata, Billing, Notifications)
+and also some existing solutions (RabbitMQ, S3, MinIO, PostgreSQL).
+
+## Content of directories
+
+The microservices are located in folders with the name of the microservices. Some of the shared configurations that are needed in multiple microservices are present in the shared folder.
+The scripts folder contains a few scripts for cUrl and also postman collection of requests. Some of these scripts were used during testing and experiments.
+

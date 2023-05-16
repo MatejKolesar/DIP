@@ -1,21 +1,32 @@
-apiVersion: batch/v1beta1
-kind: CronJob
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-  name: service-scale-down-job
+  name: billing
 spec:
-  schedule: "0 22 * * 1-5"
-  jobTemplate:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: billing
+  template:
+    metadata:
+      labels:
+        app: billing
     spec:
-      template:
-        spec:
-          containers:
-            - name: service-scheduled-job
-              image: service-scheduled-job:latest
-              args:
-                - "kubectl patch hpa service-hpa --patch '{\"spec\":{\"minReplicas\":3}}'"
-              env:
-                - name: "SERVICE_ACCOUNT_KEY"
-                  valueFrom:
-                    secretKeyRef:
-                      key: "SERVICE_ACCOUNT_KEY"
-                      name: "scale-job-secret"
+      containers:
+        - name: billing
+          image: matthew9164/billing:1.2.4
+          ports:
+            - containerPort: 8095
+          resources:
+            requests:
+              memory: "256Mi"
+              cpu: "250m"
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
+          env:
+            - name: SPRING_DATASOURCE_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: db-credentials
+                  key: username
